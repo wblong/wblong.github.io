@@ -78,10 +78,13 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repo: git@github.com:wblong/wblong.github.io.git
   branch: master
 
+- type: git
+  repo: https://git.coding.net/wblong/wblong.git
+  branch: master
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 #RSS订阅
