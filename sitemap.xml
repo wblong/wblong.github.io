@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2019/01/06/hello-world/</loc>
+    <loc>https://wblong.github.io/about/index.html</loc>
     
-    <lastmod>2019-01-05T13:45:17.393Z</lastmod>
+    <lastmod>2019-01-06T03:33:25.643Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wblong.github.io/2019/01/06/hexo_tips/</loc>
+    
+    <lastmod>2019-01-06T03:30:35.561Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wblong.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-01-06T03:24:53.039Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wblong.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-01-06T03:24:32.089Z</lastmod>
     
   </url>
   
