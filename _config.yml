@@ -7,8 +7,8 @@ title: Hexo
 subtitle:
 description:
 keywords:
-author: John Doe
-language:
+author: 龍
+language: zh-Hans
 timezone:
 
 # URL
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -92,4 +92,8 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
+
+# sitemap
+sitemap:
+  path: sitemap.xml
   
