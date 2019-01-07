@@ -106,3 +106,8 @@ search:
   field: post
   format: html
   limit: 10000
+# admin
+admin:
+  username: admin
+  password_hash: $2a$10$KM.IAbF7Tcut1ONwAsx7EurZwrRbx0gZl8myLbI9/oA4T4TxgSxE.
+  secret: nico the unicorn
