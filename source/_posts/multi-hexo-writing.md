@@ -2,6 +2,8 @@
 title: multi-hexo-writing
 date: 2019-01-07 11:35:02
 tags: Hexo
+categories: 
+- Hexo
 ---
 
 #### 安装nodejs环境
