@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wblong.github.io/"/>
-  <updated>2019-01-06T03:30:35.561Z</updated>
+  <updated>2019-01-20T14:16:29.368Z</updated>
   <id>https://wblong.github.io/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>python venv</title>
+    <link href="https://wblong.github.io/2019/01/20/python-venv/"/>
+    <id>https://wblong.github.io/2019/01/20/python-venv/</id>
+    <published>2019-01-20T13:56:42.000Z</published>
+    <updated>2019-01-20T14:16:29.368Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><h2 id="配置Anaconda-包源"><a href="#配置Anaconda-包源" class="headerlink" title="配置Anaconda 包源"></a>配置Anaconda 包源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure><h2 id="使用Anaconda"><a href="#使用Anaconda" class="headerlink" title="使用Anaconda"></a>使用Anaconda</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//列出安装包</span><br><span class="line">conda list </span><br><span class="line">//列出python虚拟环境</span><br><span class="line">conda env list</span><br><span class="line">//创建一个python虚拟环境python3.5</span><br><span class="line">conda create -n python3.5 python=3.5</span><br><span class="line">//激活python3.5虚拟环境</span><br><span class="line">activate python3.5</span><br><span class="line">//为python3.5虚拟环境安装virtualenv环境</span><br><span class="line">conda install -n python3.5 virtualenv</span><br><span class="line">//解除虚拟环境</span><br><span class="line">deactivate</span><br><span class="line">//删除python3.5虚拟环境</span><br><span class="line">conda remove -n python3.5 --all</span><br><span class="line">conda remove --name python3.5 virtualenv</span><br></pre></td></tr></table></figure><h2 id="切换安装32位和64包"><a href="#切换安装32位和64包" class="headerlink" title="切换安装32位和64包"></a>切换安装32位和64包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//切换到32位版本</span><br><span class="line">set CONDA_FORCE_32BIT=1</span><br><span class="line">//切换到64位版本</span><br><span class="line">set CONDA_FORCE_32BIT=</span><br><span class="line">// 查看环境信息</span><br><span class="line">conda info</span><br></pre></td></tr></table></figure><h2 id="python包管理"><a href="#python包管理" class="headerlink" title="python包管理"></a>python包管理</h2><blockquote><p>基本原则是使用Anconda管理多个版本的python环境，使用pip及virtualenv管理python环境的副本及三方库。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//anaconda 管理python多版本切换</span><br><span class="line">conda create -n python3.5 python=3.5</span><br><span class="line">active python3.5</span><br><span class="line">pip install virtualenv</span><br><span class="line">// 纯净python环境</span><br><span class="line">virtualenv --no-site-packages venv </span><br><span class="line">/venv/Script/activate</span><br><span class="line">//备份三方python包</span><br><span class="line">pip freeze &gt; requirement.txt</span><br><span class="line">//批量安装python三方包</span><br><span class="line">pip install -r requirement.txt</span><br><span class="line">/venv/Script/deactivate</span><br><span class="line">deactivate</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装Anaconda&quot;&gt;&lt;a href=&quot;#安装Anaconda&quot; class=&quot;headerlink&quot; title=&quot;安装Anaconda&quot;&gt;&lt;/a&gt;安装Anaconda&lt;/h2&gt;&lt;h2 id=&quot;配置Anaconda-包源&quot;&gt;&lt;a href=&quot;#配置Anacon
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://wblong.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://wblong.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>multi-hexo-writing</title>
+    <link href="https://wblong.github.io/2019/01/07/multi-hexo-writing/"/>
+    <id>https://wblong.github.io/2019/01/07/multi-hexo-writing/</id>
+    <published>2019-01-07T03:35:02.000Z</published>
+    <updated>2019-01-20T13:54:44.485Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="安装nodejs环境"><a href="#安装nodejs环境" class="headerlink" title="安装nodejs环境"></a>安装nodejs环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda install nodejs</span><br><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><h4 id="克隆远程GIT到本地"><a href="#克隆远程GIT到本地" class="headerlink" title="克隆远程GIT到本地"></a>克隆远程GIT到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone xxxx.git</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;安装nodejs环境&quot;&gt;&lt;a href=&quot;#安装nodejs环境&quot; class=&quot;headerlink&quot; title=&quot;安装nodejs环境&quot;&gt;&lt;/a&gt;安装nodejs环境&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;t
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://wblong.github.io/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://wblong.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo Tips</title>
     <link href="https://wblong.github.io/2019/01/06/hexo_tips/"/>
     <id>https://wblong.github.io/2019/01/06/hexo_tips/</id>
     <published>2019-01-06T01:56:12.303Z</published>
-    <updated>2019-01-06T03:30:35.561Z</updated>
+    <updated>2019-01-20T13:54:53.183Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -34,7 +84,7 @@
     
     </summary>
     
-      <category term="建站" scheme="https://wblong.github.io/categories/%E5%BB%BA%E7%AB%99/"/>
+      <category term="Hexo" scheme="https://wblong.github.io/categories/Hexo/"/>
     
     
       <category term="Hexo" scheme="https://wblong.github.io/tags/Hexo/"/>
