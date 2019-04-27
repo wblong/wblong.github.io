@@ -30,13 +30,13 @@ call 可以改变当前函数的作用域
    	使用call方法防止调用对象的原型方法被改变
     
    ```
-   var slice=[].slice;
+   var slice=[].slice;//(保存未修改前的)
    Array.prototype.slice=function(index){
    	console.log('我是改写的slice方法'+index);
    }
    
    var array=[1,2,3,4];
-   slice.call(array,3);//print out 4
+   slice.call(array,3);//print out 4 (未修改前的)
   	array.slice(3);// print out 我是改写的slice方法4 (原型方法被修改掉了)
    
    ```
