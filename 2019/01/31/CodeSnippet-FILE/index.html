@@ -81,14 +81,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://wblong.github.io/tags/index.html">
+<meta name="description" content="使用OutputDebugString输出调试信息1234567891011121314151617void __cdecl odprintf(const char* fmt, ...)&amp;#123;	char buf[4096], *p = buf;	va_list args;	va_start(args, fmt);	p += vsnprintf_s(p, sizeof(buf), _TRUNC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodeSnippet C language">
+<meta property="og:url" content="https://wblong.github.io/2019/01/31/CodeSnippet-FILE/index.html">
 <meta property="og:site_name" content="Unicorn">
+<meta property="og:description" content="使用OutputDebugString输出调试信息1234567891011121314151617void __cdecl odprintf(const char* fmt, ...)&amp;#123;	char buf[4096], *p = buf;	va_list args;	va_start(args, fmt);	p += vsnprintf_s(p, sizeof(buf), _TRUNC">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-06T03:24:32.089Z">
+<meta property="og:updated_time" content="2019-04-27T08:38:39.584Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="CodeSnippet C language">
+<meta name="twitter:description" content="使用OutputDebugString输出调试信息1234567891011121314151617void __cdecl odprintf(const char* fmt, ...)&amp;#123;	char buf[4096], *p = buf;	va_list args;	va_start(args, fmt);	p += vsnprintf_s(p, sizeof(buf), _TRUNC">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://wblong.github.io/tags/">
+  <link rel="canonical" href="https://wblong.github.io/2019/01/31/CodeSnippet-FILE/">
 
 
 
 
 
-  <title>tags | Unicorn</title>
+  <title>CodeSnippet C language | Unicorn</title>
   
 
 
@@ -311,40 +314,144 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wblong.github.io/2019/01/31/CodeSnippet-FILE/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nico">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Unicorn">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 6 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/C-11/" style="font-size: 12px; color: #ccc">C++11</a> <a href="/tags/Git/" style="font-size: 12px; color: #ccc">Git</a> <a href="/tags/Hexo/" style="font-size: 30px; color: #111">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 30px; color: #111">JavaScript</a> <a href="/tags/algorithm/" style="font-size: 12px; color: #ccc">algorithm</a> <a href="/tags/python/" style="font-size: 12px; color: #ccc">python</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">CodeSnippet C language</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-31T11:32:45+08:00">
+                2019-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h4 id="使用OutputDebugString输出调试信息"><a href="#使用OutputDebugString输出调试信息" class="headerlink" title="使用OutputDebugString输出调试信息"></a>使用OutputDebugString输出调试信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void __cdecl odprintf(const char* fmt, ...)</span><br><span class="line">&#123;</span><br><span class="line">	char buf[4096], *p = buf;</span><br><span class="line">	va_list args;</span><br><span class="line"></span><br><span class="line">	va_start(args, fmt);</span><br><span class="line">	p += vsnprintf_s(p, sizeof(buf), _TRUNCATE, fmt, args);</span><br><span class="line">	va_end(args);</span><br><span class="line"></span><br><span class="line">	while (p &gt; buf  &amp;&amp;  isspace(p[-1]))</span><br><span class="line">		*--p = &apos;\0&apos;;</span><br><span class="line">	*p++ = &apos;\r&apos;;</span><br><span class="line">	*p++ = &apos;\n&apos;;</span><br><span class="line">	*p = &apos;\0&apos;;</span><br><span class="line"></span><br><span class="line">	OutputDebugString(buf);    //OutputDebugString  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="时间戳转字符日期"><a href="#时间戳转字符日期" class="headerlink" title="时间戳转字符日期"></a>时间戳转字符日期</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void  __cdecl dateprintf(long long timestamp, char*now,int len) </span><br><span class="line">&#123;</span><br><span class="line">	struct tm ttime;</span><br><span class="line">	localtime_s(&amp;ttime, &amp;timestamp);</span><br><span class="line">	strftime(now, len, &quot;%Y-%m-%d %H:%M:%S&quot;, &amp;ttime);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="按行读取文本文件到map"><a href="#按行读取文本文件到map" class="headerlink" title="按行读取文本文件到map"></a>按行读取文本文件到map</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;io.h&gt;</span><br><span class="line"></span><br><span class="line">std::map&lt;CameraId, int&gt; m_recordloc;</span><br><span class="line"></span><br><span class="line">int find_view_by_cid(int cid) &#123;</span><br><span class="line">	auto it = m_recordloc.find(cid);</span><br><span class="line">	return it != m_recordloc.end() ?</span><br><span class="line">		it-&gt;second : 1;</span><br><span class="line">&#125;</span><br><span class="line">void  getRecordLocation() &#123;</span><br><span class="line"></span><br><span class="line">	odprintf(&quot;[HK8600] %s\n&quot;, __FUNCTION__);</span><br><span class="line"></span><br><span class="line">	if (!_access(&quot;device_tr.dat&quot;, 0)) &#123;</span><br><span class="line">    </span><br><span class="line">		odprintf(&quot;[HK8600] %s\n&quot;, &quot;device_tr.dat EXISITS!&quot;);</span><br><span class="line">		FILE *file = fopen(&quot;device_tr.dat&quot;, &quot;r&quot;);</span><br><span class="line">		if (file != NULL) &#123;</span><br><span class="line">			while (!feof(file))</span><br><span class="line">			&#123;</span><br><span class="line">				int cameraId, reloc;</span><br><span class="line">				fscanf(file, &quot;%d,%d&quot;, &amp;cameraId, &amp;reloc);</span><br><span class="line">				odprintf(&quot;[HK8600] cameraId:%d;location:%d\n&quot;,cameraId,reloc);</span><br><span class="line">				m_recordloc.insert(std::make_pair(cameraId, reloc));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			odprintf(&quot;[HK8600] %s\n&quot;, &quot;Read device_tr.dat FAILED!&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		fclose(file);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">		odprintf(&quot;[HK8600] %s\n&quot;,&quot;DOESN&apos;T EXISIT!&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/24/负载均衡算法/" rel="next" title="负载均衡算法">
+                <i class="fa fa-chevron-left"></i> 负载均衡算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/20/git-删除远程分支/" rel="prev" title="git 删除远程分支">
+                git 删除远程分支 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -353,6 +460,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -373,8 +484,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -459,6 +579,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用OutputDebugString输出调试信息"><span class="nav-number">1.</span> <span class="nav-text">使用OutputDebugString输出调试信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间戳转字符日期"><span class="nav-number">2.</span> <span class="nav-text">时间戳转字符日期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按行读取文本文件到map"><span class="nav-number">3.</span> <span class="nav-text">按行读取文本文件到map</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

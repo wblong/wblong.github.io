@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="algorithm,">
 
 
 
@@ -81,14 +81,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://wblong.github.io/tags/index.html">
+<meta name="description" content="轮询算法（round-robin）1234567891011SERVER_LIST = [    &amp;apos;10.246.10.1&amp;apos;,    &amp;apos;10.246.10.2&amp;apos;,    &amp;apos;10.246.10.3&amp;apos;,]def round_robin(server_lst, cur = [0]):    length = len(server_lst)">
+<meta name="keywords" content="algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="负载均衡算法">
+<meta property="og:url" content="https://wblong.github.io/2019/01/24/负载均衡算法/index.html">
 <meta property="og:site_name" content="Unicorn">
+<meta property="og:description" content="轮询算法（round-robin）1234567891011SERVER_LIST = [    &amp;apos;10.246.10.1&amp;apos;,    &amp;apos;10.246.10.2&amp;apos;,    &amp;apos;10.246.10.3&amp;apos;,]def round_robin(server_lst, cur = [0]):    length = len(server_lst)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-06T03:24:32.089Z">
+<meta property="og:updated_time" content="2019-04-27T08:38:39.592Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="负载均衡算法">
+<meta name="twitter:description" content="轮询算法（round-robin）1234567891011SERVER_LIST = [    &amp;apos;10.246.10.1&amp;apos;,    &amp;apos;10.246.10.2&amp;apos;,    &amp;apos;10.246.10.3&amp;apos;,]def round_robin(server_lst, cur = [0]):    length = len(server_lst)">
 
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://wblong.github.io/tags/">
+  <link rel="canonical" href="https://wblong.github.io/2019/01/24/负载均衡算法/">
 
 
 
 
 
-  <title>tags | Unicorn</title>
+  <title>负载均衡算法 | Unicorn</title>
   
 
 
@@ -311,40 +315,175 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wblong.github.io/2019/01/24/负载均衡算法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nico">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Unicorn">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 6 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/C-11/" style="font-size: 12px; color: #ccc">C++11</a> <a href="/tags/Git/" style="font-size: 12px; color: #ccc">Git</a> <a href="/tags/Hexo/" style="font-size: 30px; color: #111">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 30px; color: #111">JavaScript</a> <a href="/tags/algorithm/" style="font-size: 12px; color: #ccc">algorithm</a> <a href="/tags/python/" style="font-size: 12px; color: #ccc">python</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">负载均衡算法</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-24T14:25:07+08:00">
+                2019-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="轮询算法（round-robin）"><a href="#轮询算法（round-robin）" class="headerlink" title="轮询算法（round-robin）"></a>轮询算法（round-robin）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SERVER_LIST = [</span><br><span class="line">    &apos;10.246.10.1&apos;,</span><br><span class="line">    &apos;10.246.10.2&apos;,</span><br><span class="line">    &apos;10.246.10.3&apos;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">def round_robin(server_lst, cur = [0]):</span><br><span class="line">    length = len(server_lst)</span><br><span class="line">    ret = server_lst[cur[0] % length]</span><br><span class="line">    cur[0] = (cur[0] + 1) % length</span><br><span class="line">    return ret</span><br></pre></td></tr></table></figure>
+<h2 id="加权轮询算法（weight-round-robin）"><a href="#加权轮询算法（weight-round-robin）" class="headerlink" title="加权轮询算法（weight round-robin）"></a>加权轮询算法（weight round-robin）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">WEIGHT_SERVER_LIST = &#123;</span><br><span class="line">    &apos;10.246.10.1&apos;: 1,</span><br><span class="line">    &apos;10.246.10.2&apos;: 3,</span><br><span class="line">    &apos;10.246.10.3&apos;: 2,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">def weight_round_robin(servers, cur = [0]):</span><br><span class="line">    weighted_list = []</span><br><span class="line">    //[ &apos;10.246.10.1&apos;,10.246.10.2&apos;,10.246.10.2&apos;,10.246.10.2&apos;,&apos;10.246.10.3&apos;,&apos;10.246.10.3&apos;]</span><br><span class="line">    for k, v in servers.iteritems():</span><br><span class="line">        weighted_list.extend([k] * v)</span><br><span class="line"></span><br><span class="line">    length = len(weighted_list)</span><br><span class="line">    ret = weighted_list[cur[0] % length]</span><br><span class="line">    cur[0] = (cur[0] + 1) % length</span><br><span class="line">    return ret</span><br></pre></td></tr></table></figure>
+<h2 id="随机算法（random）"><a href="#随机算法（random）" class="headerlink" title="随机算法（random）"></a>随机算法（random）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def random_choose(server_lst):</span><br><span class="line">    import random</span><br><span class="line">    random.seed()</span><br><span class="line">    return random.choice(server_lst)</span><br></pre></td></tr></table></figure>
+<h2 id="加权随机算法（random）"><a href="#加权随机算法（random）" class="headerlink" title="加权随机算法（random）"></a>加权随机算法（random）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def weight_random_choose(servers):</span><br><span class="line">    import random</span><br><span class="line">    random.seed()</span><br><span class="line">    weighted_list = []</span><br><span class="line">    for k, v in servers.iteritems():</span><br><span class="line">        weighted_list.extend([k] * v)</span><br><span class="line">    return random.choice(weighted_list)</span><br></pre></td></tr></table></figure>
+<h2 id="归一化-概率"><a href="#归一化-概率" class="headerlink" title="归一化(概率)"></a>归一化(概率)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def normalize_servers(servers):</span><br><span class="line">    normalized_servers = &#123;&#125;</span><br><span class="line">    total = sum(servers.values())</span><br><span class="line">    cur_sum = 0</span><br><span class="line">    for k, v in servers.iteritems():</span><br><span class="line">        normalized_servers[k] = 1.0 * (cur_sum + v) / total</span><br><span class="line">        cur_sum += v</span><br><span class="line">    return normalized_servers</span><br><span class="line"></span><br><span class="line">def weight_random_choose_ex(normalized_servers):</span><br><span class="line">    import random, operator</span><br><span class="line">    random.seed()</span><br><span class="line">    rand = random.random()</span><br><span class="line">    //按照归一化加权值排序</span><br><span class="line">    for k, v in sorted(normalized_servers.iteritems(), key = operator.itemgetter(1)):</span><br><span class="line">        if v &gt;= rand:</span><br><span class="line">            return k</span><br><span class="line">    else:</span><br><span class="line">        assert False, &apos;Error normalized_servers with rand %s &apos; % rand</span><br></pre></td></tr></table></figure>
+<h2 id="哈希法（hash）"><a href="#哈希法（hash）" class="headerlink" title="哈希法（hash）"></a>哈希法（hash）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//同一个请求能够分配到同样的服务节点，这对于“有状态”的服务很有必要</span><br><span class="line"> def hash_choose(request_info, server_lst):</span><br><span class="line">     hashed_request_info = hash(request_info)</span><br><span class="line">     return server_lst[hashed_request_info % len(server_lst)]</span><br></pre></td></tr></table></figure>
+<h2 id="一致性哈希"><a href="#一致性哈希" class="headerlink" title="一致性哈希"></a>一致性哈希</h2><h2 id="最少连接算法（least-connection）"><a href="#最少连接算法（least-connection）" class="headerlink" title="最少连接算法（least connection）"></a>最少连接算法（least connection）</h2>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/20/python-venv/" rel="next" title="python venv">
+                <i class="fa fa-chevron-left"></i> python venv
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/31/CodeSnippet-FILE/" rel="prev" title="CodeSnippet C language">
+                CodeSnippet C language <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -353,6 +492,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -373,8 +516,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -459,6 +611,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#轮询算法（round-robin）"><span class="nav-number">1.</span> <span class="nav-text">轮询算法（round-robin）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加权轮询算法（weight-round-robin）"><span class="nav-number">2.</span> <span class="nav-text">加权轮询算法（weight round-robin）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机算法（random）"><span class="nav-number">3.</span> <span class="nav-text">随机算法（random）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加权随机算法（random）"><span class="nav-number">4.</span> <span class="nav-text">加权随机算法（random）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归一化-概率"><span class="nav-number">5.</span> <span class="nav-text">归一化(概率)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希法（hash）"><span class="nav-number">6.</span> <span class="nav-text">哈希法（hash）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一致性哈希"><span class="nav-number">7.</span> <span class="nav-text">一致性哈希</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最少连接算法（least-connection）"><span class="nav-number">8.</span> <span class="nav-text">最少连接算法（least connection）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
