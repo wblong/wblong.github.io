@@ -91,6 +91,17 @@ require(['jquery','math'], function ($,math) {
     console.log(math.add(10,100));//110
 });
 ```
+3、统一
+```
+require([module], callback);
+```
+```
+require(['math'], function (math) {
+
+　　　　math.add(2, 3);
+
+　　});
+```
 #### UMD
 	Universal Module Definition。
     把前后端加载糅合在了一起，提供了一个前后端统一的解决方案。
@@ -130,4 +141,3 @@ require(['jquery','math'], function ($,math) {
 }));
 ```
 ![注解](images/js_module_load.png)
-

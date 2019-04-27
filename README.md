@@ -10,6 +10,7 @@ hexo d
 ```
 ## edit
 ```
-hexo s
-open http://localhost:4000/admin/login/
+localhost http://localhost:4000/admin/login/
+github http://wblong.github.io
+coding http://wblong.coding.me
 ````
