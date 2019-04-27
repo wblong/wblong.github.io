@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wblong.github.io/"/>
-  <updated>2019-04-27T14:02:59.856Z</updated>
+  <updated>2019-04-27T15:13:26.717Z</updated>
   <id>https://wblong.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> Javascript call 用法及好处</title>
+    <link href="https://wblong.github.io/2019/04/27/Javascript-call-%E7%94%A8%E6%B3%95%E5%8F%8A%E5%A5%BD%E5%A4%84/"/>
+    <id>https://wblong.github.io/2019/04/27/Javascript-call-用法及好处/</id>
+    <published>2019-04-27T15:02:00.000Z</published>
+    <updated>2019-04-27T15:13:26.717Z</updated>
+    
+    <content type="html"><![CDATA[<p>call 可以改变当前函数的作用域</p><h6 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h6>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">this.name=name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.say=function()&#123;</span><br><span class="line">console.log(&quot;My name is&quot;+this.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person =new Person(&quot;Mike&quot;);</span><br><span class="line">person.say();//My name is Mike</span><br><span class="line"></span><br><span class="line">var student=&#123;name:&apos;Marry&apos;&#125;;</span><br><span class="line">person.call(student);// My name is Marry</span><br></pre></td></tr></table></figure><h6 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h6><pre><code>使用call方法防止调用对象的原型方法被改变</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var slice=[].slice;//(保存未修改前的)</span><br><span class="line">Array.prototype.slice=function(index)&#123;</span><br><span class="line">console.log(&apos;我是改写的slice方法&apos;+index);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var array=[1,2,3,4];</span><br><span class="line">slice.call(array,3);//print out 4 (未修改前的)</span><br><span class="line">array.slice(3);// print out 我是改写的slice方法4 (原型方法被修改掉了)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;call 可以改变当前函数的作用域&lt;/p&gt;
+&lt;h6 id=&quot;示例&quot;&gt;&lt;a href=&quot;#示例&quot; class=&quot;headerlink&quot; title=&quot;示例&quot;&gt;&lt;/a&gt;示例&lt;/h6&gt;   &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://wblong.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://wblong.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>闭包、立即执行函数和模块化</title>

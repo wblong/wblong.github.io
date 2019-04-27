@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Javascript call 用法及好处]]></title>
+    <url>%2F2019%2F04%2F27%2FJavascript-call-%E7%94%A8%E6%B3%95%E5%8F%8A%E5%A5%BD%E5%A4%84%2F</url>
+    <content type="text"><![CDATA[call 可以改变当前函数的作用域 示例 12345678910111213function Person(name)&#123; this.name=name;&#125;Person.prototype.say=function()&#123; console.log(&quot;My name is&quot;+this.name);&#125;var person =new Person(&quot;Mike&quot;);person.say();//My name is Mikevar student=&#123;name:&apos;Marry&apos;&#125;;person.call(student);// My name is Marry 好处使用call方法防止调用对象的原型方法被改变 12345678var slice=[].slice;//(保存未修改前的)Array.prototype.slice=function(index)&#123; console.log(&apos;我是改写的slice方法&apos;+index);&#125;var array=[1,2,3,4];slice.call(array,3);//print out 4 (未修改前的)array.slice(3);// print out 我是改写的slice方法4 (原型方法被修改掉了)]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[闭包、立即执行函数和模块化]]></title>
     <url>%2F2019%2F04%2F27%2FJS%E9%97%AD%E5%8C%85%E3%80%81%E7%AB%8B%E5%8D%B3%E6%A8%A1%E5%BC%8F%E5%92%8C%E6%A8%A1%E5%9D%97%E5%8C%96%2F</url>
     <content type="text"><![CDATA[闭包一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。 示例1、函数作为返回值12345678910111213//函数声明function fn()&#123; var max=10; return function bar(x)&#123; if(x&gt;max)&#123; console.log(x); &#125; &#125;;&#125;//函数表达式var f1=fu();f1(15); //print out 15//执行f(15)时，max变量的取值是10 2、函数作为参数被传递1234567891011121314var max=10, fn=function(x)&#123; if(x&gt;max)&#123; console.log(x); &#125; &#125;; (function(f)&#123; var max=100; f(15);&#125;)(fn);/*执行f(15)时，max变量的取值是10，而不是100*/ 立即执行函数立即执行函数立即执行，函数体后要有小括号以及函数必须是函数表达式（()、+、-、!等）而不能是函数声明 示例1、匿名函数包裹在一个括号运算符中，后面跟一个小括号 123(function(test)&#123; console.log(test); //print out 123&#125;)(123); 2、匿名函数后面跟小括号，然后整个包裹在括号运算符中 123(function(test)&#123; console.log(test);//print out 1234&#125;(1234)); 模块化1、使用立即执行函数 使用&quot;立即执行函数&quot;（Immediately-Invoked Function Expression，IIFE），可以达到不暴露私有成员的目的。 1234567891011121314151617181920var module1 = (function()&#123; var _count = 0; var m1 = function()&#123; //... &#125;; var m2 = function()&#123; //... &#125;; return &#123; m1 : m1, m2 : m2 &#125;; &#125;)(); //使用上面的写法，外部代码无法读取内部的_count变量 console.info(module1._count); //undefined 2、放大模式 12345678910111213141516171819202122232425 var module1 = (function (mod)&#123; mod.m3 = function () &#123; //... &#125;; return mod; &#125;)(module1);//上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。//宽放大模式var module1 = ( function (mod)&#123; //... return mod; &#125;)(window.module1 || &#123;&#125;);//模块的独立性 var module1 = (function ($, YAHOO) &#123; //... &#125;)(jQuery, YAHOO);]]></content>
