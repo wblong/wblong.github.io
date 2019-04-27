@@ -8,3 +8,8 @@ hexo g
 hexo s
 hexo d
 ```
+## edit
+```
+hexo s
+open http://localhost:4000/admin/login/
+````
