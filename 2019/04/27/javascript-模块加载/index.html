@@ -90,7 +90,7 @@
 <meta property="og:description" content="Javascript 模块加载分为浏览器端加载和服务器端加载。 CommonJS服务器端模块化的规范，Nodejs实现了这种规范。 规范 一个单独的JS文件就是一个module，拥有单独的作用域; 每个单独的module是一个单独的作用域。也就是说在一个文件里定义的变量和函数都是私有，对其他文件不可见，除非用exports导出了; 通过require来加载模块; 通过exports和module.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://wblong.github.io/2019/04/27/javascript-模块加载/images/js_module_load.png">
-<meta property="og:updated_time" content="2019-04-27T10:45:24.378Z">
+<meta property="og:updated_time" content="2019-04-27T14:07:21.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript 模块加载">
 <meta name="twitter:description" content="Javascript 模块加载分为浏览器端加载和服务器端加载。 CommonJS服务器端模块化的规范，Nodejs实现了这种规范。 规范 一个单独的JS文件就是一个module，拥有单独的作用域; 每个单独的module是一个单独的作用域。也就是说在一个文件里定义的变量和函数都是私有，对其他文件不可见，除非用exports导出了; 通过require来加载模块; 通过exports和module.">
@@ -449,6 +449,8 @@ RequireJS是AMD的一种实现。
 </ul>
 <h6 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h6><p>1、定义模块 math.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define([&apos;jquery&apos;], function ($) &#123;//引入jQuery模块</span><br><span class="line">    return &#123;</span><br><span class="line">        add: function(x,y)&#123;</span><br><span class="line">            return x + y;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>2、调用模块 main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">require([&apos;jquery&apos;,&apos;math&apos;], function ($,math) &#123;</span><br><span class="line">    console.log(math.add(10,100));//110</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>3、统一<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require([module], callback);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">require([&apos;math&apos;], function (math) &#123;</span><br><span class="line"></span><br><span class="line">　　　　math.add(2, 3);</span><br><span class="line"></span><br><span class="line">　　&#125;);</span><br></pre></td></tr></table></figure>
 <h4 id="UMD"><a href="#UMD" class="headerlink" title="UMD"></a>UMD</h4><pre><code>Universal Module Definition。
 把前后端加载糅合在了一起，提供了一个前后端统一的解决方案。
 支持AMD和CommonJS模式。

@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="闭包一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。">
+<meta name="description" content="闭包一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。 示例1、函数作为返回值12345678910111213//函数声明function fn()&amp;#123;	var max=10;   return function bar(x)&amp;#123;   	if(x&amp;gt;max)&amp;#123;    	console.log(x);    &amp;#125">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="闭包、立即执行函数和模块化">
 <meta property="og:url" content="https://wblong.github.io/2019/04/27/JS闭包、立即模式和模块化/index.html">
 <meta property="og:site_name" content="Unicorn">
-<meta property="og:description" content="闭包一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。">
+<meta property="og:description" content="闭包一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。 示例1、函数作为返回值12345678910111213//函数声明function fn()&amp;#123;	var max=10;   return function bar(x)&amp;#123;   	if(x&amp;gt;max)&amp;#123;    	console.log(x);    &amp;#125">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-27T10:20:51.139Z">
+<meta property="og:updated_time" content="2019-04-27T14:02:59.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闭包、立即执行函数和模块化">
-<meta name="twitter:description" content="闭包一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。">
+<meta name="twitter:description" content="闭包一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。 示例1、函数作为返回值12345678910111213//函数声明function fn()&amp;#123;	var max=10;   return function bar(x)&amp;#123;   	if(x&amp;gt;max)&amp;#123;    	console.log(x);    &amp;#125">
 
 
 
@@ -417,7 +417,19 @@
 
       
         <h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><pre><code>一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。
-</code></pre>
+</code></pre><h6 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h6><p>1、函数作为返回值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//函数声明</span><br><span class="line">function fn()&#123;</span><br><span class="line">	var max=10;</span><br><span class="line">   return function bar(x)&#123;</span><br><span class="line">   	if(x&gt;max)&#123;</span><br><span class="line">    	console.log(x);</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">&#125;</span><br><span class="line">//函数表达式</span><br><span class="line">var f1=fu();</span><br><span class="line">f1(15); //print out 15</span><br><span class="line">//执行f(15)时，max变量的取值是10</span><br></pre></td></tr></table></figure></p>
+<p>2、函数作为参数被传递<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var max=10,</span><br><span class="line">	fn=function(x)&#123;</span><br><span class="line">    	if(x&gt;max)&#123;</span><br><span class="line">        	console.log(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">(function(f)&#123;</span><br><span class="line">	var max=100;</span><br><span class="line">   f(15);</span><br><span class="line">&#125;)(fn);</span><br><span class="line">/*</span><br><span class="line">执行f(15)时，max变量的取值是10，而不是100</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+<h4 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h4><pre><code>立即执行函数立即执行，函数体后要有小括号以及函数必须是函数表达式（()、+、-、!等）而不能是函数声明
+</code></pre><h6 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h6><p>1、匿名函数包裹在一个括号运算符中，后面跟一个小括号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function(test)&#123;</span><br><span class="line">	console.log(test); //print out 123</span><br><span class="line">&#125;)(123);</span><br></pre></td></tr></table></figure>
+<p>2、匿名函数后面跟小括号，然后整个包裹在括号运算符中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function(test)&#123;</span><br><span class="line">	console.log(test);//print out 1234</span><br><span class="line">&#125;(1234));</span><br></pre></td></tr></table></figure>
+<h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><p>1、使用立即执行函数</p>
+<pre><code>使用&quot;立即执行函数&quot;（Immediately-Invoked Function Expression，IIFE），可以达到不暴露私有成员的目的。
+</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var module1 = (function()&#123;</span><br><span class="line"></span><br><span class="line">　　　　var _count = 0;</span><br><span class="line"></span><br><span class="line">　　　　var m1 = function()&#123;</span><br><span class="line">　　　　　　//...</span><br><span class="line">　　　　&#125;;</span><br><span class="line"></span><br><span class="line">　　　　var m2 = function()&#123;</span><br><span class="line">　　　　　　//...</span><br><span class="line">　　　　&#125;;</span><br><span class="line"></span><br><span class="line">　　　　return &#123;</span><br><span class="line">　　　　　　m1 : m1,</span><br><span class="line">　　　　　　m2 : m2</span><br><span class="line">　　　　&#125;;</span><br><span class="line"></span><br><span class="line">　　&#125;)();</span><br><span class="line"> //使用上面的写法，外部代码无法读取内部的_count变量</span><br><span class="line"> console.info(module1._count); //undefined</span><br></pre></td></tr></table></figure>
+<p>2、放大模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">　var module1 = (function (mod)&#123;</span><br><span class="line"></span><br><span class="line">　　　　mod.m3 = function () &#123;</span><br><span class="line">　　　　　　//...</span><br><span class="line">　　　　&#125;;</span><br><span class="line"></span><br><span class="line">　　　　return mod;</span><br><span class="line"></span><br><span class="line">　　&#125;)(module1);</span><br><span class="line">//上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</span><br><span class="line">//宽放大模式</span><br><span class="line">var module1 = ( function (mod)&#123;</span><br><span class="line"></span><br><span class="line">　　　　//...</span><br><span class="line"></span><br><span class="line">　　　　return mod;</span><br><span class="line"></span><br><span class="line">　　&#125;)(window.module1 || &#123;&#125;);</span><br><span class="line">//模块的独立性</span><br><span class="line">　var module1 = (function ($, YAHOO) &#123;</span><br><span class="line"></span><br><span class="line">　　　　//...</span><br><span class="line"></span><br><span class="line">　　&#125;)(jQuery, YAHOO);</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -612,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#示例"><span class="nav-number">1.0.1.</span> <span class="nav-text">示例</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#立即执行函数"><span class="nav-number">2.</span> <span class="nav-text">立即执行函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#示例-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化"><span class="nav-number">3.</span> <span class="nav-text">模块化</span></a></li></div>
             
 
           </div>
