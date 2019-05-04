@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Gulp介绍与Hexo优化]]></title>
+    <url>%2F2019%2F05%2F04%2FGulp%E4%BB%8B%E7%BB%8D%E4%B8%8EHexo%E4%BC%98%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[什么是Gulpgulp.js是一种基于流的，代码优化配置的新一代构建工具。Gulp和Grunt类似。但相比于Grunt的频繁的I/O操作，Gulp的流操作，能更快完成构建。 Gulp特性 使用方便 通过代码优于配置的策略，Gulp可以让简单的任务简单，复杂的任务更可管理。 构建快速 通过流式操作，减少频繁的 IO 操作，更快地构建项目。 插件高质 Gulp 有严格的插件指导策略，确保插件能简单高质的工作。 易于学习 少量的API，掌握Gulp可以毫不费力。构建就像流管道一样，轻松加愉快。 Gulp安装Gulp是基于Node.js的，故要首先安装 Node.js。 npm install -g gulp 然后按以下清单文件安装12345gulpgulp-htmlcleangulp-htmlmingulp-minify-cssgulp-uglify 方法是同样的,npm install xxx –save，xxx即为清单列表文件名。其中gulp是工程的核心程序，Gulp采用插件方式进行工作，下面的5个文件就是基于Gulp的插件。 123456npm install gulp -g npm install gulp --savenpm install gulp-minify-css --savenpm install gulp-uglify --savenpm install gulp-htmlmin --savenpm install gulp-htmlclean --save 使用Gulp优化Hexo建立gulpfile.js12345678910111213141516171819202122232425262728293031323334353637383940414243var gulp = require(&apos;gulp&apos;); //Plugins模块获取 var minifycss = require(&apos;gulp-minify-css&apos;); var uglify = require(&apos;gulp-uglify&apos;); var htmlmin = require(&apos;gulp-htmlmin&apos;); var htmlclean = require(&apos;gulp-htmlclean&apos;); // 压缩 public 目录 css文件 gulp.task(&apos;minify-css&apos;, function() &#123; return gulp.src(&apos;./public/**/*.css&apos;) .pipe(minifycss()) .pipe(gulp.dest(&apos;./public&apos;)); &#125;); // 压缩 public 目录 html文件 gulp.task(&apos;minify-html&apos;, function() &#123; return gulp.src(&apos;./public/**/*.html&apos;) .pipe(htmlclean()) .pipe(htmlmin(&#123; removeComments: true, minifyJS: true, minifyCSS: true, minifyURLs: true, &#125;)) .pipe(gulp.dest(&apos;./public&apos;)) &#125;); // 压缩 public/js 目录 js文件 gulp.task(&apos;minify-js&apos;, function() &#123; return gulp.src(&apos;./public/**/*.js&apos;) .pipe(uglify()) .pipe(gulp.dest(&apos;./public&apos;)); &#125;); //4.0以前的写法 //gulp.task(&apos;default&apos;, [ // &apos;minify-html&apos;, &apos;minify-css&apos;, &apos;minify-js&apos; //]); //4.0以后的写法 // 执行 gulp 命令时执行的任务 gulp.task(&apos;default&apos;, gulp.parallel(&apos;minify-html&apos;, &apos;minify-css&apos;, &apos;minify-js&apos;, function() &#123; // Do something after a, b, and c are finished. &#125;)); 运行要运行gulp任务，只需切换到存放gulpfile.js文件的目录，然后在终端中执行gulp命令就行了，gulp后面可以加上要执行的任务名，例如gulp task1，如果没有指定任务名，则会执行任务名为default的默认任务。 12345hexo clean //先清除public目录hexo g //生成发布文件gulp //压缩代码hexo d //发布]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo-admin设置用户名及密码]]></title>
+    <url>%2F2019%2F05%2F01%2Fhexo-admin%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[安装hexo插件安装并使用hexo-admin123npm install --save hexo-adminhexo server -dopen http://localhost:4000/admin/ 设置后台密码修改站点配置文件_config.yml:12345# adminadmin: username: **** password_hash: ZwrRbx0gZl8myLbI9/oA4T4TxgSxE. secret: ***** username是用户名 password_hash是密码的哈希映射值，由于不同版本的node.js的哈希算法是不一样的，所有用以下方法来产生有效的密码哈希值1234$ node&gt; const bcrypt = require(&apos;bcrypt-nodejs&apos;)&gt; bcrypt.hashSync(&apos;your password secret here!&apos;)//=&gt; &apos;$2a$10$8f0CO288aEgpb0BQk0mAEOIDwPS.s6nl703xL6PLTVzM.758x8xsi&apos;]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Javascript call 用法及好处]]></title>
     <url>%2F2019%2F04%2F27%2FJavascript-call-%E7%94%A8%E6%B3%95%E5%8F%8A%E5%A5%BD%E5%A4%84%2F</url>
     <content type="text"><![CDATA[call 可以改变当前函数的作用域 示例 12345678910111213function Person(name)&#123; this.name=name;&#125;Person.prototype.say=function()&#123; console.log(&quot;My name is&quot;+this.name);&#125;var person =new Person(&quot;Mike&quot;);person.say();//My name is Mikevar student=&#123;name:&apos;Marry&apos;&#125;;person.call(student);// My name is Marry 好处使用call方法防止调用对象的原型方法被改变 12345678var slice=[].slice;//(保存未修改前的)Array.prototype.slice=function(index)&#123; console.log(&apos;我是改写的slice方法&apos;+index);&#125;var array=[1,2,3,4];slice.call(array,3);//print out 4 (未修改前的)array.slice(3);// print out 我是改写的slice方法4 (原型方法被修改掉了)]]></content>

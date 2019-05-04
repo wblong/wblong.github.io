@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wblong.github.io/"/>
-  <updated>2019-04-27T15:13:26.717Z</updated>
+  <updated>2019-05-04T02:32:55.538Z</updated>
   <id>https://wblong.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gulp介绍与Hexo优化</title>
+    <link href="https://wblong.github.io/2019/05/04/Gulp%E4%BB%8B%E7%BB%8D%E4%B8%8EHexo%E4%BC%98%E5%8C%96/"/>
+    <id>https://wblong.github.io/2019/05/04/Gulp介绍与Hexo优化/</id>
+    <published>2019-05-04T02:16:00.000Z</published>
+    <updated>2019-05-04T02:32:55.538Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是Gulp"><a href="#什么是Gulp" class="headerlink" title="什么是Gulp"></a>什么是Gulp</h2><p><code>gulp.js</code>是一种基于流的，代码优化配置的新一代构建工具。<code>Gulp</code>和<code>Grunt</code>类似。但相比于<code>Grunt</code>的频繁的I/O操作，Gulp的流操作，能更快完成构建。</p><h2 id="Gulp特性"><a href="#Gulp特性" class="headerlink" title="Gulp特性"></a>Gulp特性</h2><ul><li><p>使用方便</p><p>  通过代码优于配置的策略，<code>Gulp</code>可以让简单的任务简单，复杂的任务更可管理。</p></li><li><p>构建快速</p><p>  通过流式操作，减少频繁的 IO 操作，更快地构建项目。</p></li><li><p>插件高质</p><p>  Gulp 有严格的插件指导策略，确保插件能简单高质的工作。</p></li><li><p>易于学习</p><p>  少量的API，掌握Gulp可以毫不费力。构建就像流管道一样，轻松加愉快。</p></li></ul><h2 id="Gulp安装"><a href="#Gulp安装" class="headerlink" title="Gulp安装"></a>Gulp安装</h2><p>Gulp是基于Node.js的，故要首先安装 Node.js。</p><p><code>npm install -g gulp</code></p><p>然后按以下清单文件安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp</span><br><span class="line">gulp-htmlclean</span><br><span class="line">gulp-htmlmin</span><br><span class="line">gulp-minify-css</span><br><span class="line">gulp-uglify</span><br></pre></td></tr></table></figure></p><p>方法是同样的,npm install xxx –save，xxx即为清单列表文件名。<br>其中gulp是工程的核心程序，Gulp采用插件方式进行工作，下面的5个文件就是基于Gulp的插件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp -g</span><br><span class="line">npm install gulp --save</span><br><span class="line">npm install gulp-minify-css --save</span><br><span class="line">npm install gulp-uglify --save</span><br><span class="line">npm install gulp-htmlmin --save</span><br><span class="line">npm install gulp-htmlclean --save</span><br></pre></td></tr></table></figure><h2 id="使用Gulp优化Hexo"><a href="#使用Gulp优化Hexo" class="headerlink" title="使用Gulp优化Hexo"></a>使用Gulp优化Hexo</h2><p>建立gulpfile.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line"></span><br><span class="line">    //Plugins模块获取</span><br><span class="line">    var minifycss = require(&apos;gulp-minify-css&apos;);</span><br><span class="line">    var uglify = require(&apos;gulp-uglify&apos;);</span><br><span class="line">    var htmlmin = require(&apos;gulp-htmlmin&apos;);</span><br><span class="line">    var htmlclean = require(&apos;gulp-htmlclean&apos;);</span><br><span class="line"></span><br><span class="line">    // 压缩 public 目录 css文件</span><br><span class="line">    gulp.task(&apos;minify-css&apos;, function() &#123;</span><br><span class="line">        return gulp.src(&apos;./public/**/*.css&apos;)</span><br><span class="line">            .pipe(minifycss())</span><br><span class="line">            .pipe(gulp.dest(&apos;./public&apos;));</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    // 压缩 public 目录 html文件</span><br><span class="line">    gulp.task(&apos;minify-html&apos;, function() &#123;</span><br><span class="line">      return gulp.src(&apos;./public/**/*.html&apos;)</span><br><span class="line">        .pipe(htmlclean())</span><br><span class="line">        .pipe(htmlmin(&#123;</span><br><span class="line">             removeComments: true,</span><br><span class="line">             minifyJS: true,</span><br><span class="line">             minifyCSS: true,</span><br><span class="line">             minifyURLs: true,</span><br><span class="line">        &#125;))</span><br><span class="line">        .pipe(gulp.dest(&apos;./public&apos;))</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    // 压缩 public/js 目录 js文件</span><br><span class="line">    gulp.task(&apos;minify-js&apos;, function() &#123;</span><br><span class="line">        return gulp.src(&apos;./public/**/*.js&apos;)</span><br><span class="line">            .pipe(uglify())</span><br><span class="line">            .pipe(gulp.dest(&apos;./public&apos;));</span><br><span class="line">    &#125;);</span><br><span class="line">    //4.0以前的写法 </span><br><span class="line">    //gulp.task(&apos;default&apos;, [</span><br><span class="line">      //  &apos;minify-html&apos;, &apos;minify-css&apos;, &apos;minify-js&apos;</span><br><span class="line">    //]);</span><br><span class="line">    //4.0以后的写法</span><br><span class="line">    // 执行 gulp 命令时执行的任务</span><br><span class="line">    gulp.task(&apos;default&apos;, gulp.parallel(&apos;minify-html&apos;, &apos;minify-css&apos;, &apos;minify-js&apos;, function() &#123;</span><br><span class="line">      // Do something after a, b, and c are finished.</span><br><span class="line">    &#125;));</span><br></pre></td></tr></table></figure></p><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>要运行gulp任务，只需切换到存放gulpfile.js文件的目录，然后在终端中执行gulp命令就行了，gulp后面可以加上要执行的任务名，例如gulp task1，如果没有指定任务名，则会执行任务名为default的默认任务。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo clean //先清除public目录</span><br><span class="line">hexo g     //生成发布文件</span><br><span class="line">gulp       //压缩代码</span><br><span class="line">hexo d     //发布</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;什么是Gulp&quot;&gt;&lt;a href=&quot;#什么是Gulp&quot; class=&quot;headerlink&quot; title=&quot;什么是Gulp&quot;&gt;&lt;/a&gt;什么是Gulp&lt;/h2&gt;&lt;p&gt;&lt;code&gt;gulp.js&lt;/code&gt;是一种基于流的，代码优化配置的新一代构建工具。&lt;code&gt;G
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://wblong.github.io/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://wblong.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo-admin设置用户名及密码</title>
+    <link href="https://wblong.github.io/2019/05/01/hexo-admin%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%8F%8A%E5%AF%86%E7%A0%81/"/>
+    <id>https://wblong.github.io/2019/05/01/hexo-admin设置用户名及密码/</id>
+    <published>2019-05-01T08:13:00.000Z</published>
+    <updated>2019-05-04T02:03:45.639Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装hexo插件"><a href="#安装hexo插件" class="headerlink" title="安装hexo插件"></a>安装hexo插件</h2><h5 id="安装并使用hexo-admin"><a href="#安装并使用hexo-admin" class="headerlink" title="安装并使用hexo-admin"></a>安装并使用hexo-admin</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-admin</span><br><span class="line">hexo server -d</span><br><span class="line">open http://localhost:4000/admin/</span><br></pre></td></tr></table></figure><h4 id="设置后台密码"><a href="#设置后台密码" class="headerlink" title="设置后台密码"></a>设置后台密码</h4><p>修改站点配置文件<code>_config.yml</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># admin</span><br><span class="line">admin:</span><br><span class="line">  username: ****</span><br><span class="line">  password_hash: ZwrRbx0gZl8myLbI9/oA4T4TxgSxE.</span><br><span class="line">  secret: *****</span><br></pre></td></tr></table></figure></p><ul><li>username是用户名</li><li>password_hash是密码的哈希映射值，由于不同版本的node.js的哈希算法是不一样的，所有用以下方法来产生有效的密码哈希值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ node</span><br><span class="line">&gt; const bcrypt = require(&apos;bcrypt-nodejs&apos;)</span><br><span class="line">&gt; bcrypt.hashSync(&apos;your password secret here!&apos;)</span><br><span class="line">//=&gt; &apos;$2a$10$8f0CO288aEgpb0BQk0mAEOIDwPS.s6nl703xL6PLTVzM.758x8xsi&apos;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装hexo插件&quot;&gt;&lt;a href=&quot;#安装hexo插件&quot; class=&quot;headerlink&quot; title=&quot;安装hexo插件&quot;&gt;&lt;/a&gt;安装hexo插件&lt;/h2&gt;&lt;h5 id=&quot;安装并使用hexo-admin&quot;&gt;&lt;a href=&quot;#安装并使用hexo-admi
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://wblong.github.io/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://wblong.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title> Javascript call 用法及好处</title>
